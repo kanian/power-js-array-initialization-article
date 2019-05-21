@@ -1,0 +1,17 @@
+{
+  "name": "power-js-array-initialization-article",
+  "version": "1.0.0",
+  "description": "Code for Array Initialization Article",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "testWithCoverage": "jest --coverage "
+  },
+  "author": "Patrick Assoa Adou",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.8.0",
+    "jest-cli": "^24.8.0"
+  }
+}
