@@ -8,4 +8,8 @@ function fillTo(x){
   return [...filler(1, x)]
 }
 
-module.exports = fillTo
+function fill(x,y){
+  return [...filler(x,y)]
+}
+
+module.exports = {fillTo: fillTo, fill: fill, filler: filler}
