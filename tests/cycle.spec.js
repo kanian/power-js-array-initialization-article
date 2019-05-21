@@ -1,8 +1,8 @@
-let repeatPattern = require('../src/cycle').repeatPattern
-let repeatPattern2 = require('../src/cycle').repeatPattern2
-let cycleThroughPattern = require('../src/cycle').cycleThroughPattern
-let cycleThroughNumberPattern = require('../src/cycle').cycleThroughNumberPattern
-let same = require('../src/cycle').same
+let repeatPattern = require('../src/utils').repeatPattern
+let repeatPattern2 = require('../src/utils').repeatPattern2
+let cycleThroughPattern = require('../src/utils').cycleThroughPattern
+let cycleThroughNumberPattern = require('../src/utils').cycleThroughNumberPattern
+let same = require('../src/utils').same
 
 describe("repeatPattern:", () => {
   it("should allow for repeating a pattern an arbitrary number of times", () =>{

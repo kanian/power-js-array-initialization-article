@@ -24,47 +24,6 @@ function cycle(...args) {
   };
 }
 
-function take(n, xs) {
-  let it = typeof xs.next === "undefined" ? makeIterator(xs) : xs;
-  let taken = [];
-  let nxt;
-  while (n > 0) {
-    if ((nxt = it.next()).done) return taken;
-    taken.push(nxt.value);
-    n--;
-  }
-  return taken;
-}
 
-function repeatPattern(xs, n) {
-  let repeated = [];
-  for (var i = 1; i <= n; i++) {
-    repeated.push(...xs);
-  }
-  return repeated;
-}
 
-function repeatPattern2(xs, n) {
-  let times = xs.length * n;
-  return take(times, cycle(xs));
-}
-
-function cycleThroughPattern(xs, n) {
-  return take(n, cycle(xs));
-}
-
-function cycleThroughNumberPattern(x, y, n) {
-  return take(n, cycle(x, y));
-}
-
-var same = (el, n) => take(n, cycle(el));
-
-module.exports = {
-  cycle: cycle,
-  take: take,
-  repeatPattern: repeatPattern,
-  repeatPattern2: repeatPattern2,
-  cycleThroughPattern: cycleThroughPattern,
-  cycleThroughNumberPattern: cycleThroughNumberPattern,
-  same: same
-};
+module.exports = cycle
