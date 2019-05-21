@@ -1,28 +1,31 @@
 let filler = require("../src/arrayFillSequentialGenerator").filler;
-function cycle(...args){
-  let [x,y] = [...args] 
-  //let els = typeof y === 'undefined' ? [x] : [...filler(x,y)]
-  let els = Array.isArray(x) ? x : typeof y === 'undefined' ? [x] : [...filler(x,y)]
-  let index = 0
+function cycle(...args) {
+  let [x, y] = [...args];
+  let els = Array.isArray(x)
+    ? x
+    : typeof y === "undefined"
+    ? [x]
+    : [...filler(x, y)];
+  let index = 0;
   return {
-   [Symbol.iterator]: function* (){      
-      let _n = 0
-      while ( _n < els.length){
-        yield els[_n]
-        _n++
+    [Symbol.iterator]: function*() {
+      let _n = 0;
+      while (_n < els.length) {
+        yield els[_n];
+        _n++;
       }
     },
     next: function() {
-      if(index === els.length) // cycle
-        index = 0
-      return {value: els[index++], done: false}
+      if (index === els.length)
+        // cycle
+        index = 0;
+      return { value: els[index++], done: false };
     }
-  }
+  };
 }
 
 function take(n, xs) {
-  //let it = typeof xs.next === 'undefined' ? makeIterator(xs) : xs
-  let it = xs;
+  let it = typeof xs.next === "undefined" ? makeIterator(xs) : xs;
   let taken = [];
   let nxt;
   while (n > 0) {
@@ -50,14 +53,15 @@ function cycleThroughPattern(xs, n) {
   return take(n, cycle(xs));
 }
 
-function cycleThroughNumberPattern(x,y, n) {
-  return take(n, cycle(x,y));
+function cycleThroughNumberPattern(x, y, n) {
+  return take(n, cycle(x, y));
 }
 
 var same = (el, n) => take(n, cycle(el));
 
 module.exports = {
   cycle: cycle,
+  take: take,
   repeatPattern: repeatPattern,
   repeatPattern2: repeatPattern2,
   cycleThroughPattern: cycleThroughPattern,

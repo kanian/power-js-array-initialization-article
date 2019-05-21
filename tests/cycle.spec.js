@@ -25,6 +25,7 @@ describe("cycleThroughPattern:", () => {
   })
 })
 
+
 describe("cycleThroughNumberPattern:", () => {
   it("should allow for cycling through a sequence of numbers an arbitrary number of times", () =>{
     let n = 7
