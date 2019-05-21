@@ -1,7 +1,8 @@
 let repeatPattern = require('../src/cycle').repeatPattern
 let repeatPattern2 = require('../src/cycle').repeatPattern2
 let cycleThroughPattern = require('../src/cycle').cycleThroughPattern
-let sames = require('../src/cycle').sames
+let cycleThroughNumberPattern = require('../src/cycle').cycleThroughNumberPattern
+let same = require('../src/cycle').same
 
 describe("repeatPattern:", () => {
   it("should allow for repeating a pattern an arbitrary number of times", () =>{
@@ -24,10 +25,19 @@ describe("cycleThroughPattern:", () => {
   })
 })
 
-describe("sames:", () => {
+describe("cycleThroughNumberPattern:", () => {
+  it("should allow for cycling through a sequence of numbers an arbitrary number of times", () =>{
+    let n = 7
+    let x = 2
+    let y = 5
+    expect(cycleThroughNumberPattern(x,y,n)).toEqual(cycleThroughPattern([2,3,4,5],n))
+  })
+})
+
+describe("same:", () => {
   it("should allow for cycling through a pattern an arbitrary number of times", () =>{
     let n = 7
     let el = 1
-    expect(sames(el,n)).toEqual((new Array(n)).fill(el))
+    expect(same(el,n)).toEqual((new Array(n)).fill(el))
   })
 })

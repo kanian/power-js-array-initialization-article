@@ -1,10 +1,10 @@
 let filler = require("../src/arrayFillSequentialGenerator").filler;
-function cycle(/*...args*/ xs) {
-  //let [x,y] = [...args]
+function cycle(...args) {
+  let [x,y] = [...args]
   //let els = xs;
   /*let els = typeof y === 'undefined' ? [x] : [...filler(x,y)]*/
-  //let els = Array.isArray(x) ? x : typeof y === 'undefined' ? [x] : [...filler(x,y)]
-  let els = Array.isArray(xs) ? xs : [xs];
+  let els = Array.isArray(x) ? x : typeof y === 'undefined' ? [x] : [...filler(x,y)]
+  //let els = Array.isArray(xs) ? xs : [xs];
   let index = 0;
   return {
     /*[Symbol.iterator]: function* (){      
@@ -53,12 +53,17 @@ function cycleThroughPattern(xs, n) {
   return take(n, cycle(xs));
 }
 
-var sames = (el, n) => take(n, cycle(el));
+function cycleThroughNumberPattern(x,y, n) {
+  return take(n, cycle(x,y));
+}
+
+var same = (el, n) => take(n, cycle(el));
 
 module.exports = {
   cycle: cycle,
   repeatPattern: repeatPattern,
   repeatPattern2: repeatPattern2,
   cycleThroughPattern: cycleThroughPattern,
-  sames: sames
+  cycleThroughNumberPattern: cycleThroughNumberPattern,
+  same: same
 };
